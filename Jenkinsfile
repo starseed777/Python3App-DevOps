@@ -8,6 +8,10 @@ pipeline {
 
     stages {
 
+        stage("initialize docker to run commands") {
+            Docker()
+        }
+
         stage("Building skynet docker image") {
             steps {
                 sh "docker build . -t starseed777/simple-python:${DOCKER_TAG}"
@@ -27,6 +31,10 @@ pipeline {
         }
 
     }
+}
+
+def Docker() {
+    env.PATH = "${dockerHome}/bin:${env.PATH}"
 }
 
 def DockerTag() {
