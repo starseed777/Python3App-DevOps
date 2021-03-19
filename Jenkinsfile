@@ -16,7 +16,10 @@ pipeline {
 
         stage("Pushing skynet image to public container registry") {
             steps {
-                sh "docker push starseed777/simple-python:$DOCKER_TAG"
+
+                withDockerRegistry(credentialsId: 'dockercredentials', url: 'starseed777/simple-python') {
+                    sh "docker push starseed777/simple-python:$DOCKER_TAG"
+                }
             }
         }
 
