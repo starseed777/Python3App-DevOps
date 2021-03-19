@@ -1,3 +1,0 @@
-[filesystem "AdoptOpenJDK|1.8.0_282|/dev/sda5"]
-	timestampResolution = 4001 microseconds
-	minRacyThreshold = 0 nanoseconds
