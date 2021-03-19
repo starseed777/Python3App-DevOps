@@ -4,32 +4,29 @@ pipeline {
         DOCKER_TAG = DockerTag()
         registry = "starseed777/simple-python"
         registryCredential = "dockerhub"
-
     }
 
     stages {
-        stage("Building docker image from skynet package") {
+        stage("Building skynet docker image") {
             steps {
                 sh "docker build . -t starseed777/simple-python:${DOCKER_TAG}"
             }
         }
 
-        stage("Push built image to dockerhub") {
+        stage("Pushing skynet image to public container registry") {
             steps {
-                script{
-                   docker.withRegistry("",registryCredential) {
-                    sh "docker push starseed777/simple-python:$DOCKER_TAG"
-                   } 
-                }
+                sh "docker push starseed777/simple-python:$DOCKER_TAG"
             }
         }
 
-        stage("Check if skynet works") {
+        stage("Check if skynet container works") {
             steps {
-                sh "docker run skynet"
+                sh "docker run simple-python"
             }
-    }   }
+        }
 
+    }
+}
 
 def DockerTag() {
     def tag = sh script: "git rev-parse HEAD", returnStdout: true
