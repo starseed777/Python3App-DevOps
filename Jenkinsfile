@@ -23,18 +23,6 @@ pipeline {
             }
         }
 
-        stage("pull image locally") {
-            steps {
-                sh "docker pull starseed777/simple-python"
-            }
-        }
-
-        stage("test if image can be run in a container") {
-            steps {
-                sh "docker run starseed777/simple-python"
-            }
-        }
-
     }
 }
 
