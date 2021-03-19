@@ -23,9 +23,15 @@ pipeline {
             }
         }
 
-        stage("Check if skynet container works") {
+        stage("pull image locally") {
             steps {
-                sh "docker run simple-python"
+                sh "docker pull starseed777/simple-python"
+            }
+        }
+
+        stage("test if image can be run in a container") {
+            steps {
+                sh "docker run starseed777/simple-python"
             }
         }
 
