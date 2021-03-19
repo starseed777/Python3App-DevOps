@@ -28,7 +28,8 @@ pipeline {
             steps {
                 sh "docker run skynet"
             }
-        }
+    }   }
+
 
 def DockerTag() {
     def tag = sh script: "git rev-parse HEAD", returnStdout: true
