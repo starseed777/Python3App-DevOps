@@ -3,7 +3,7 @@ pipeline {
     environment {
         DOCKER_TAG = DockerTag()
         registry = "starseed777/simple-python"
-        registryCredential = "dockerhub"
+        registryCredential = "dockercredentials"
     }
 
     stages {
