@@ -1,1 +1,1 @@
-A personal passion project that containerizes a simple python3 application and pushes the image to my public container registry utilizing jenkins CI / CD. 
+A personal passion project that containerizes a simple python3 application and pushes the image to my public container registry utilizing jenkins CI / CD ( jenkins provisioned on AWS with terraform). 
